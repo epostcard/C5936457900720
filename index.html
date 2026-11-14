@@ -103,6 +103,22 @@
         .spinning-cd {
             animation: cd-spin 3s linear infinite;
         }
+
+        /* စာရွက်အတွက် သပ်ရပ်သော Custom Scrollbar */
+        .note-scroll::-webkit-scrollbar {
+            width: 5px;
+        }
+        .note-scroll::-webkit-scrollbar-track {
+            background: rgba(251, 207, 232, 0.3);
+            border-radius: 10px;
+        }
+        .note-scroll::-webkit-scrollbar-thumb {
+            background: rgba(244, 114, 182, 0.6);
+            border-radius: 10px;
+        }
+        .note-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(236, 72, 153, 0.85);
+        }
     </style>
 </head>
 <body class="birthday-grid-bg h-screen w-screen relative flex flex-col items-center justify-center overflow-hidden touch-manipulation">
@@ -231,19 +247,23 @@
         </div>
     </div>
 
-    <!-- MODAL 4: PNG 4 (Note Style) -->
+    <!-- MODAL 4: PNG 4 (Note Style - Scrollable) -->
     <div id="realisticNoteModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4 transition-opacity duration-300 opacity-0">
-        <div class="relative w-full max-w-md rounded-2xl p-7 shadow-2xl transform scale-90 transition-all duration-300 border-4 border-pink-300 overflow-hidden" 
+        <div class="relative w-full max-w-md max-h-[85vh] flex flex-col rounded-2xl p-6 sm:p-7 shadow-2xl transform scale-90 transition-all duration-300 border-4 border-pink-300 overflow-hidden" 
              id="modalCard4"
              style="background-color: #fdf2f8; background-image: linear-gradient(to right, rgba(244, 114, 182, 0.25) 1px, transparent 1px), linear-gradient(to bottom, rgba(244, 114, 182, 0.25) 1px, transparent 1px); background-size: 24px 24px;">
-            <button onclick="closeModal('realisticNoteModal', 'modalCard4')" class="absolute top-4 right-4 w-8 h-8 bg-white/80 hover:bg-white text-pink-600 rounded-full flex items-center justify-center z-10 shadow-sm border border-pink-200">
+            
+            <button onclick="closeModal('realisticNoteModal', 'modalCard4')" class="absolute top-4 right-4 w-8 h-8 bg-white/80 hover:bg-white text-pink-600 rounded-full flex items-center justify-center z-20 shadow-sm border border-pink-200">
                 <i class="fa-solid fa-xmark text-base"></i>
             </button>
-            <h3 class="text-lg font-bold text-pink-700 border-b-2 border-pink-300/60 pb-2 mb-4 flex items-center gap-2">
+
+            <h3 class="text-lg font-bold text-pink-700 border-b-2 border-pink-300/60 pb-2 mb-3 flex items-center gap-2 shrink-0">
                 <span>သို့🤍</span>
             </h3>
-            <p class="text-pink-950/85 text-sm md:text-base leading-relaxed font-serif relative z-10 bg-white/60 p-4 rounded-xl border border-pink-200/50 backdrop-blur-[2px]">
-                "ငါ မင်းကို အရင်ကတည်းက ဖွင့်ပြောထားပြီးသားပါ။ ဒါပေမယ့် ကိုယ့်ရင်ထဲမှာရှိတဲ့အရာတွေကို အပြည့်အဝ မပြောပြနိုင်သေးဘူးလို့ ခံစားနေရလို့ ဒီတစ်ခါ ထပ်ပြောချင်တယ်။
+
+            <!-- Scrollable Text Container -->
+            <div class="note-scroll overflow-y-auto overscroll-contain pr-1.5 relative z-10 bg-white/65 p-4 rounded-xl border border-pink-200/60 backdrop-blur-[2px] select-text">
+                <p class="text-pink-950/90 text-sm md:text-base leading-relaxed font-serif whitespace-pre-line">"ငါ မင်းကို အရင်ကတည်းက ဖွင့်ပြောထားပြီးသားပါ။ ဒါပေမယ့် ကိုယ့်ရင်ထဲမှာရှိတဲ့အရာတွေကို အပြည့်အဝ မပြောပြနိုင်သေးဘူးလို့ ခံစားနေရလို့ ဒီတစ်ခါ ထပ်ပြောချင်တယ်။
 
 မင်းကို သဘောကျတယ်ဆိုတာ စိတ်ကူးယဉ်ပြီး ခဏတာဖြစ်လာတဲ့ ခံစားချက်တစ်ခုမဟုတ်ဘူး။ မင်းနဲ့ စကားပြောရတဲ့အချိန်တွေ၊ မင်းရဲ့အပြုအမူလေးတွေ၊ မင်းရဲ့ပုံစံလေးတွေကို တဖြည်းဖြည်း သဘောကျလာရင်းနဲ့ မင်းက ကိုယ့်အတွက် အရေးပါတဲ့သူတစ်ယောက် ဖြစ်လာခဲ့တာပါ။
 
@@ -253,8 +273,8 @@
 
 မင်းက ငါ့ကို ဘယ်လိုမြင်လဲ၊ ဘယ်လိုခံစားလဲဆိုတာ ငါမသိသေးဘူး။ ဒါပေမယ့် ငါ့ဘက်ကတော့ မင်းကို တကယ်တန်ဖိုးထားတယ်။ မင်းနဲ့အတူ အချိန်တွေ ပိုဖြတ်သန်းပြီး တစ်ယောက်နဲ့တစ်ယောက် ပိုနားလည်လာခွင့်ရချင်တယ်။
 
-မင်းရဲ့အဖြေက ဘာပဲဖြစ်ဖြစ် ငါလေးစားပေးမယ်။ အရေးကြီးတာက ငါ့ရင်ထဲမှာရှိတဲ့အရာကို မဖုံးကွယ်ဘဲ မင်းကို ရိုးရိုးသားသား ပြောပြနိုင်ခဲ့တာပါ။ ❤️"💗
-            </p>
+မင်းရဲ့အဖြေက ဘာပဲဖြစ်ဖြစ် ငါလေးစားပေးမယ်။ အရေးကြီးတာက ငါ့ရင်ထဲမှာရှိတဲ့အရာကို မဖုံးကွယ်ဘဲ မင်းကို ရိုးရိုးသားသား ပြောပြနိုင်ခဲ့တာပါ။ ❤️"💗</p>
+            </div>
         </div>
     </div>
 
